@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbkt01dckr06x"]
+
+[ext_resource type="PackedScene" uid="uid://c1qk06atvob6b" path="res://scenes/games/fps/fps_player.tscn" id="1_etnqk"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_15od1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtb5t"]
+albedo_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dr8lt"]
+material = SubResource("StandardMaterial3D_jtb5t")
+size = Vector2(20, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4slon"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aki57"]
+
+[node name="FPSGame" type="Node"]
+
+[node name="FPSPlayer" parent="." instance=ExtResource("1_etnqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.37014, 1.75)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_15od1")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_dr8lt")
+skeleton = NodePath("../..")
+
+[node name="Block" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29162, -3.26984)
+
+[node name="MeshInstance3d2" type="MeshInstance3D" parent="Block"]
+mesh = SubResource("BoxMesh_4slon")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Block"]
+shape = SubResource("BoxShape3D_aki57")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.859049, -0.299697, -0.41499, 0.511893, 0.502945, 0.696428, -1.98518e-08, -0.810696, 0.585467, 0, 4.15664, 0.0397468)
+light_bake_mode = 1
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.086
