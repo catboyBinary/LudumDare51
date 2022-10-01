@@ -12,6 +12,13 @@ const games: Array[Resource] = [
 	preload("res://scenes/games/button_game.tscn"),
 	preload("res://scenes/games/fps/fps_game.tscn")
 ]
+var themeCount = 0
+const themes = [
+	preload("res://themes/theme.tres"),
+	preload("res://themes/theme1.tres"),
+	preload("res://themes/theme2.tres"),
+	preload("res://themes/theme3.tres")
+]
 
 # Вместо того чтобы постоянно отслеживать время,
 # Мы отслеживаем только каждые полсекунды
@@ -30,6 +37,10 @@ func _on_timer_timeout() -> void:
 			#current_game.queue_free()
 			current_game.process_mode = Node.PROCESS_MODE_DISABLED
 			iters = -1
+			$Camera2d/CameraShake.start()
+			themeCount += 1
+			if themeCount == 4: themeCount = 0
+			theme = themes[themeCount]
 			
 	iters += 1
 	

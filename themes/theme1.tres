@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bm2ckreqp1ciw"]
 
-[ext_resource type="FontFile" uid="uid://drgggslqrrqcs" path="res://fonts/8bitlim.ttf" id="1_hsorj"]
+[ext_resource type="FontFile" uid="uid://bvwsoxdy5wqgj" path="res://fonts/CraftyGirls.ttf" id="1_acoti"]
 
 [resource]
-default_font = ExtResource("1_hsorj")
+default_font = ExtResource("1_acoti")
 default_font_size = 16
 Label/font_sizes/font_size = 72

@@ -5,15 +5,9 @@ const EASE = Tween.EASE_IN_OUT
 
 var amplitude = 0
 var priority = 0
-var tween : Tween
 @onready var camera = get_parent()
 
-func _ready():
-	tween = create_tween()
-
-func start(duration = 0.2, frequency = 15, amplitude = 16, priority = 0):
-	tween.set_ease(EASE)
-	tween.set_trans(TRANS)
+func start(duration = 0.1, frequency = 30, amplitude = 10, priority = 0):
 	if (priority >= self.priority):
 		self.priority = priority
 		self.amplitude = amplitude
@@ -30,11 +24,26 @@ func _new_shake():
 	rand.x = randi_range(-amplitude, amplitude)
 	rand.y = randi_range(-amplitude, amplitude)
 
+	var tween : Tween = create_tween()
+	tween.set_ease(EASE)
+	tween.set_trans(TRANS)
 	tween.tween_property(camera, "offset", rand, $Frequency.wait_time)
 	tween.play()
 
 func _reset():
+	var tween : Tween = create_tween()
+	tween.set_ease(EASE)
+	tween.set_trans(TRANS)
 	tween.tween_property(camera, "offset", Vector2(), $Frequency.wait_time)
 	tween.play()
 
 	priority = 0
+
+
+func _on_frequency_timeout():
+	_new_shake()
+
+
+func _on_duration_timeout():
+	_reset()
+	$Frequency.stop()

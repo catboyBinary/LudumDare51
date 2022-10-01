@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq8d5ufb637tg"]
+[gd_scene load_steps=5 format=3 uid="uid://ddnk115yeap5d"]
 
+[ext_resource type="Theme" uid="uid://w4x6oqbilshs" path="res://themes/theme.tres" id="1_8152v"]
 [ext_resource type="Script" path="res://scenes/director.gd" id="1_a4hkf"]
 [ext_resource type="PackedScene" uid="uid://4fguaj1mgm44" path="res://scenes/gui/game_announce.tscn" id="2_cio78"]
+[ext_resource type="PackedScene" uid="uid://bosg1lufqjpci" path="res://objects/camera_shake.tscn" id="3_i5ddv"]
 
 [node name="Director" type="Control"]
 layout_mode = 3
@@ -10,14 +12,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_8152v")
 script = ExtResource("1_a4hkf")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="TimerLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 0
+offset_right = 365.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 32
 text = "Time left: 10s"
 
 [node name="GameAnnounce" parent="." instance=ExtResource("2_cio78")]
@@ -54,5 +59,11 @@ text = "WELL
 DONE"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Camera2d" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="CameraShake" parent="Camera2d" instance=ExtResource("3_i5ddv")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
