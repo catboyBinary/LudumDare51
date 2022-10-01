@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://by7gclbga54j2"]
+
+[ext_resource type="Script" path="res://scripts/platformer_player.gd" id="1_hklah"]
+[ext_resource type="Texture2D" uid="uid://boas1dhm46p5s" path="res://sprites/barsik.png" id="2_iuvdw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngqh6"]
+size = Vector2(40, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s43h"]
+atlas = ExtResource("2_iuvdw")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uotdn"]
+atlas = ExtResource("2_iuvdw")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_puv87"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_3s43h"), SubResource("AtlasTexture_uotdn")],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="PlatformerPlayer" type="CharacterBody2D"]
+script = ExtResource("1_hklah")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ngqh6")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 40)
+scale = Vector2(1.25, 1.25)
+frames = SubResource("SpriteFrames_puv87")
+animation = &"walking"
+offset = Vector2(0, -32)
+
+[node name="Camera2d" type="Camera2D" parent="."]
+current = true
+process_callback = 0
+smoothing_enabled = true
+smoothing_speed = 8.0
+drag_vertical_enabled = true
