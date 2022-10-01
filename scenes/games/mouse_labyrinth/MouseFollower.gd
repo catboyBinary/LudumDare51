@@ -20,8 +20,9 @@ func _process(_delta: float) -> void:
 		position = get_viewport().get_mouse_position()
 		
 		if Input.is_action_pressed("click"):
-			if current_area.is_in_group("Cork"):
-				current_area.uncork()
+			if current_area:
+				if current_area.is_in_group("Cork"):
+					current_area.uncork()
 		
 	
 func player_respawn():
@@ -42,4 +43,10 @@ func _on_mouse_follower_body_entered(body: Node2D) -> void:
 	player_respawn()
 
 func _on_mouse_follower_area_entered(area: Area2D) -> void:
-	current_area = area
+	if area.is_in_group("Cork"):
+		current_area = area
+
+
+func _on_mouse_follower_area_exited(area: Area2D) -> void:
+	if area.is_in_group("Cork"):
+		current_area = null

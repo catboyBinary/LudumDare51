@@ -216,6 +216,7 @@ texture = ExtResource("10_lf1nd")
 centered = false
 
 [node name="MouseFollower" type="Area2D" parent="." groups=["Player"]]
+position = Vector2(300, 300)
 collision_layer = 1792
 collision_mask = 1792
 script = ExtResource("1_4oh7q")
@@ -224,19 +225,18 @@ script = ExtResource("1_4oh7q")
 shape = SubResource("CircleShape2D_pybpq")
 
 [node name="ColorRect" type="ColorRect" parent="MouseFollower"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(1, 0, 1, 1)
 
 [node name="RayCast2d" type="RayCast2D" parent="MouseFollower"]
 target_position = Vector2(0, 0)
@@ -265,6 +265,7 @@ shape = SubResource("CircleShape2D_t6jij")
 [connection signal="area_entered" from="Axe" to="Axe" method="_on_axe_area_entered"]
 [connection signal="body_entered" from="Axe" to="Axe" method="_on_axe_body_entered"]
 [connection signal="area_entered" from="MouseFollower" to="MouseFollower" method="_on_mouse_follower_area_entered"]
+[connection signal="area_exited" from="MouseFollower" to="MouseFollower" method="_on_mouse_follower_area_exited"]
 [connection signal="body_entered" from="MouseFollower" to="MouseFollower" method="_on_mouse_follower_body_entered"]
 [connection signal="player_hit" from="MouseFollower" to="Axe" method="_on_mouse_follower_player_hit"]
 [connection signal="body_entered" from="Ball" to="Ball" method="_on_ball_body_entered"]
