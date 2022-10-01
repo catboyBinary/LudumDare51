@@ -26,7 +26,6 @@ grow_horizontal = 2
 text = "LudumDare51"
 
 [node name="Camera2d" type="Camera2D" parent="."]
-anchor_mode = 0
 current = true
 
 [node name="CameraShake" parent="Camera2d" instance=ExtResource("3_xqlbu")]

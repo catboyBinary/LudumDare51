@@ -4,6 +4,7 @@ extends Control
 @onready var timer: Timer = $Timer
 @onready var game_announce: GameAnnounce = $GameAnnounce
 @onready var well_done: ColorRect = $WellDone
+@onready var camera: Camera2D = $Camera2d
 
 var current_game: int = 0
 @export var game_switcher: Node
