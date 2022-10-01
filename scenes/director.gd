@@ -41,6 +41,3 @@ func _on_timer_timeout() -> void:
 	iters += 1
 	
 	label.set_text("Time left: " + str(10 - 0.5 * iters))
-	
-func _change_game():
-	pass

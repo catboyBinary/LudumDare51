@@ -61,7 +61,6 @@ vertical_alignment = 1
 
 [node name="Camera2d" type="Camera2D" parent="."]
 anchor_mode = 0
-current = true
 
 [node name="CameraShake" parent="Camera2d" instance=ExtResource("3_i5ddv")]
 

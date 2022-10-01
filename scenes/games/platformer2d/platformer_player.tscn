@@ -29,9 +29,11 @@ animations = [{
 
 [node name="PlatformerPlayer" type="CharacterBody2D"]
 script = ExtResource("1_hklah")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ngqh6")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 40)
