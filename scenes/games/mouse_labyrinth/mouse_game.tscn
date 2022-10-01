@@ -34,3 +34,5 @@ offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[connection signal="visibility_changed" from="." to="MouseFollower" method="_on_mouse_game_visibility_changed"]

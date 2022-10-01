@@ -23,6 +23,7 @@ var iters: int = 0
 
 func _ready() -> void:
 	timer.start()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 
 func _on_timer_timeout() -> void:
