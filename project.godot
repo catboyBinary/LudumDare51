@@ -1,0 +1,26 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "CanvasLayer",
+"class": &"Fade",
+"language": &"GDScript",
+"path": "res://addons/UniversalFade/Fade.gd"
+}]
+_global_script_class_icons={
+"Fade": ""
+}
+
+[application]
+
+config/name="LudumDare51"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/icon="res://icon.svg"
