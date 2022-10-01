@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://by7gclbga54j2"]
+[gd_scene load_steps=10 format=3 uid="uid://by7gclbga54j2"]
 
 [ext_resource type="Script" path="res://scripts/platformer_player.gd" id="1_hklah"]
 [ext_resource type="Texture2D" uid="uid://boas1dhm46p5s" path="res://sprites/barsik.png" id="2_iuvdw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngqh6"]
-size = Vector2(40, 80)
+size = Vector2(30, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3s43h"]
 atlas = ExtResource("2_iuvdw")
@@ -27,11 +27,50 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_817vh"]
+resource_name = "leanRight"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2d:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.148651, 1),
+"update": 0,
+"values": [0.0, 0.261799]
+}
+
+[sub_resource type="Animation" id="Animation_dfod6"]
+resource_name = "leanLeft"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2d:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(0.148651, 1),
+"update": 0,
+"values": [0.0, -0.261799]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_juqqy"]
+_data = {
+"leanLeft": SubResource("Animation_dfod6"),
+"leanRight": SubResource("Animation_817vh")
+}
+
 [node name="PlatformerPlayer" type="CharacterBody2D"]
 script = ExtResource("1_hklah")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_ngqh6")
 metadata/_edit_group_ = true
 
@@ -44,6 +83,13 @@ offset = Vector2(0, -32)
 
 [node name="Camera2d" type="Camera2D" parent="."]
 process_callback = 0
+limit_left = -25
 smoothing_enabled = true
 smoothing_speed = 8.0
 drag_vertical_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+libraries = {
+"": SubResource("AnimationLibrary_juqqy")
+}
