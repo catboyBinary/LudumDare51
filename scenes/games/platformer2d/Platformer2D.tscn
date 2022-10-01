@@ -14,3 +14,5 @@ layer_0/tile_data = PackedInt32Array(589825, 458755, 0, 589826, 458755, 0, 58982
 
 [node name="PlatformerPlayer" parent="." instance=ExtResource("2_ja02j")]
 position = Vector2(42, 83)
+
+[connection signal="visibility_changed" from="." to="PlatformerPlayer" method="_on_platformer_2d_visibility_changed"]

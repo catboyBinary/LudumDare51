@@ -1,27 +1,230 @@
-[gd_scene load_steps=4 format=3 uid="uid://c64rfvnq3nwdh"]
+[gd_scene load_steps=23 format=3 uid="uid://c64rfvnq3nwdh"]
 
 [ext_resource type="Script" path="res://scenes/games/mouse_labyrinth/MouseFollower.gd" id="1_4oh7q"]
+[ext_resource type="Texture2D" uid="uid://bu42yt7k4b64p" path="res://scenes/games/mouse_labyrinth/sprites/ok/Фон Сведено.PNG" id="1_td0gf"]
+[ext_resource type="Script" path="res://scenes/games/mouse_labyrinth/Axe.gd" id="2_4dlgf"]
+[ext_resource type="Texture2D" uid="uid://24wlgnrdido3" path="res://scenes/games/mouse_labyrinth/sprites/ok/Axe.PNG" id="3_jyx3c"]
+[ext_resource type="Texture2D" uid="uid://c4mm46jtjmf1g" path="res://scenes/games/mouse_labyrinth/sprites/ok/Cork1.PNG" id="4_hfe1k"]
+[ext_resource type="Script" path="res://scenes/games/mouse_labyrinth/Cork.gd" id="4_p0byi"]
+[ext_resource type="Texture2D" uid="uid://cjg627c4agr2m" path="res://scenes/games/mouse_labyrinth/sprites/ok/Cork2.PNG" id="5_03edf"]
+[ext_resource type="Texture2D" uid="uid://dr4hq3lsidl20" path="res://scenes/games/mouse_labyrinth/sprites/ok/Glass pane.PNG" id="6_pjkx3"]
+[ext_resource type="Texture2D" uid="uid://5slcos4k6kxk" path="res://scenes/games/mouse_labyrinth/sprites/ok/Locked door.PNG" id="7_0dyx4"]
+[ext_resource type="Texture2D" uid="uid://1wrqso4qfulc" path="res://scenes/games/mouse_labyrinth/sprites/ok/Platform.PNG" id="8_w2liv"]
+[ext_resource type="Texture2D" uid="uid://b2frkkg330r4i" path="res://scenes/games/mouse_labyrinth/sprites/ok/Cuttable 1.PNG" id="9_pbycc"]
+[ext_resource type="Texture2D" uid="uid://b7gycoh3njr52" path="res://scenes/games/mouse_labyrinth/sprites/ok/Cuttable 2.PNG" id="10_lf1nd"]
+[ext_resource type="Script" path="res://scenes/games/mouse_labyrinth/Ball.gd" id="12_fpfd4"]
+[ext_resource type="Texture2D" uid="uid://cdbda6j7onkul" path="res://scenes/games/mouse_labyrinth/sprites/ok/Ball.PNG" id="12_v1qx6"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_q1bd3"]
-size = Vector2(1000, 1000)
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ivpd"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y78x1"]
+size = Vector2(69, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsrqw"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbd5v"]
+size = Vector2(5, 46)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5w23p"]
+radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejvar"]
+size = Vector2(32.1271, 3.99391)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pybpq"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6jij"]
+radius = 12.0
 
 [node name="MouseGame" type="Node2D"]
 
-[node name="Background" type="MeshInstance2D" parent="."]
-position = Vector2(604.869, 338.716)
-rotation = -3.14159
-scale = Vector2(1.783, -1)
-mesh = SubResource("QuadMesh_q1bd3")
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_td0gf")
+centered = false
 
-[node name="MouseFollower" type="Area2D" parent="."]
+[node name="Overall" type="StaticBody2D" parent="Background"]
+collision_layer = 4352
+collision_mask = 4352
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Background/Overall"]
+build_mode = 1
+polygon = PackedVector2Array(267, 221, 279, 203, 294, 176, 301, 160, 304, 144, 308, 134, 315, 126, 321, 109, 324, 96, 326, 87, 314, 86, 309, 80, 308, 70, 308, 46, 313, 38, 324, 36, 355, 39, 374, 38, 381, 38, 387, 43, 389, 52, 387, 57, 387, 71, 386, 82, 379, 90, 370, 90, 365, 88, 362, 92, 362, 100, 365, 124, 365, 139, 365, 152, 361, 199, 357, 221, 376, 210, 382, 208, 389, 202, 390, 191, 392, 181, 395, 177, 395, 171, 384, 171, 384, 166, 398, 165, 400, 158, 400, 149, 397, 145, 387, 144, 381, 141, 378, 134, 380, 127, 384, 124, 446, 125, 470, 128, 533, 0, 0, 1, 1, 481, 640, 480, 640, 0, 533, 0, 470, 128, 535, 127, 549, 131, 556, 141, 557, 151, 554, 162, 550, 165, 542, 172, 514, 173, 505, 171, 499, 177, 500, 191, 505, 212, 506, 349, 505, 394, 498, 403, 469, 406, 464, 408, 411, 411, 350, 411, 350, 410, 329, 410, 329, 417, 331, 421, 331, 433, 327, 438, 319, 442, 313, 442, 303, 436, 294, 397, 294, 373, 292, 369, 289, 368, 272, 368, 272, 367, 247, 367, 239, 364, 233, 357, 233, 354, 231, 351, 230, 343, 228, 341, 218, 341, 218, 354, 223, 355, 227, 361, 227, 369, 222, 376, 218, 376, 206, 376, 199, 372, 196, 364, 196, 357, 198, 348, 197, 341, 198, 324, 208, 319, 223, 318, 237, 318, 245, 324, 250, 333, 253, 337, 256, 337, 257, 331, 251, 323, 246, 314, 248, 305, 245, 302, 234, 302, 222, 301, 216, 295, 217, 287, 225, 282, 264, 286, 260, 272, 260, 242)
+
+[node name="RightLoopPart" type="StaticBody2D" parent="Background"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Background/RightLoopPart"]
+polygon = PackedVector2Array(331, 379, 331, 379, 330, 369, 335, 358, 341, 346, 346, 335, 349, 324, 352, 324, 354, 334, 355, 347, 365, 363, 374, 373, 392, 380, 407, 383, 428, 383, 444, 378, 454, 373, 466, 363, 471, 354, 473, 346, 473, 336, 468, 324, 458, 314, 445, 308, 436, 306, 422, 306, 416, 308, 416, 290, 429, 287, 464, 286, 469, 282, 471, 279, 471, 273, 467, 268, 464, 266, 424, 267, 417, 265, 411, 265, 405, 268, 375, 271, 362, 268, 360, 261, 366, 253, 375, 247, 385, 244, 396, 241, 404, 238, 414, 237, 422, 233, 426, 233, 430, 228, 430, 221, 431, 221, 431, 195, 428, 183, 427, 179, 424, 175, 424, 171, 451, 171, 452, 173, 459, 177, 469, 177, 471, 175, 480, 175, 483, 177, 485, 207, 486, 246, 486, 383, 485, 385, 472, 385, 460, 388, 440, 389, 396, 391, 380, 392, 334, 389, 331, 385)
+
+[node name="LeftLoopPart" type="StaticBody2D" parent="Background"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Background/LeftLoopPart"]
+polygon = PackedVector2Array(411, 312, 411, 293, 409, 291, 387, 293, 373, 297, 366, 302, 364, 311, 366, 323, 373, 336, 381, 351, 387, 356, 397, 361, 422, 361, 438, 358, 448, 349, 450, 343, 450, 334, 446, 330, 436, 326, 428, 329, 426, 335, 429, 339, 429, 347, 426, 351, 423, 353, 416, 353, 406, 350, 400, 344, 397, 335, 399, 326, 402, 320, 406, 315, 409, 312)
+
+[node name="Colon" type="StaticBody2D" parent="Background"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Background/Colon"]
+polygon = PackedVector2Array(213, 367, 217, 368, 218, 364, 212, 361, 210, 358, 210, 338, 213, 333, 234, 333, 238, 340, 241, 349, 245, 354, 265, 355, 289, 352, 293, 351, 293, 348, 287, 341, 278, 334, 271, 325, 266, 314, 264, 303, 260, 302, 257, 303, 256, 314, 264, 325, 265, 327, 265, 338, 261, 344, 257, 346, 250, 346, 245, 342, 239, 333, 235, 327, 231, 326, 226, 327, 213, 327, 206, 330, 206, 357, 205, 361, 208, 366)
+
+[node name="LeftTopIsland" type="StaticBody2D" parent="Background"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Background/LeftTopIsland"]
+polygon = PackedVector2Array(423, 166, 423, 152, 427, 148, 427, 145, 482, 148, 483, 154, 481, 159, 458, 159, 453, 163, 452, 166)
+
+[node name="RightTopIsland" type="StaticBody2D" parent="Background"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Background/RightTopIsland"]
+polygon = PackedVector2Array(496, 150, 501, 148, 502, 146, 514, 144, 532, 144, 540, 147, 538, 162, 536, 164, 529, 165, 516, 164, 505, 165, 502, 163, 499, 162, 496, 158)
+
+[node name="Axe" type="Area2D" parent="."]
+position = Vector2(228, 292)
+collision_layer = 512
+collision_mask = 512
+script = ExtResource("2_4dlgf")
+default_pos = Vector2(228, 292)
+
+[node name="Axe" type="Sprite2D" parent="Axe"]
+position = Vector2(0, -1)
+texture = ExtResource("3_jyx3c")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Axe"]
+shape = SubResource("CircleShape2D_6ivpd")
+
+[node name="HorizontalCork" type="Area2D" parent="." groups=["Cork"]]
+position = Vector2(460, 168)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("4_p0byi")
+uncorked_position = Vector2(500, 168)
+
+[node name="Cork1" type="Sprite2D" parent="HorizontalCork"]
+position = Vector2(-35, 0)
+texture = ExtResource("4_hfe1k")
+
+[node name="StaticBody2d" type="StaticBody2D" parent="HorizontalCork/Cork1"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="HorizontalCork/Cork1/StaticBody2d"]
+position = Vector2(-5.5, 1)
+shape = SubResource("RectangleShape2D_y78x1")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="HorizontalCork"]
+shape = SubResource("CircleShape2D_bsrqw")
+
+[node name="VerticalCork" type="Area2D" parent="." groups=["Cork"]]
+position = Vector2(415, 298)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("4_p0byi")
+uncorked_position = Vector2(415, 318)
+
+[node name="Cork2" type="Sprite2D" parent="VerticalCork"]
+texture = ExtResource("5_03edf")
+
+[node name="StaticBody2d" type="StaticBody2D" parent="VerticalCork"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="VerticalCork/StaticBody2d"]
+position = Vector2(-1.5, -9)
+shape = SubResource("RectangleShape2D_nbd5v")
+
+[node name="CollisionShape2d2" type="CollisionShape2D" parent="VerticalCork"]
+position = Vector2(-1, 25)
+shape = SubResource("CircleShape2D_5w23p")
+
+[node name="GlassPane" type="StaticBody2D" parent="." groups=["Glass"]]
+position = Vector2(312, 364)
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="GlassPane" type="Sprite2D" parent="GlassPane"]
+texture = ExtResource("6_pjkx3")
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="GlassPane" groups=["Glass"]]
+polygon = PackedVector2Array(-20, 5.00003, -10, 8.00003, 20, 8.00003, 19, 11, 0, 11, -18, 9.00003)
+
+[node name="LockedDoor" type="Sprite2D" parent="."]
+position = Vector2(389, 401)
+texture = ExtResource("7_0dyx4")
+
+[node name="PinJoint2d" type="PinJoint2D" parent="."]
+position = Vector2(430, 209)
+rotation = -0.0899515
+scale = Vector2(1, 1)
+node_a = NodePath("../RigidBody2d")
+node_b = NodePath("../Background/LeftLoopPart")
+disable_collision = false
+
+[node name="RigidBody2d" type="RigidBody2D" parent="."]
+process_mode = 3
+position = Vector2(413, 211)
+rotation = -0.0899515
+scale = Vector2(1, 1)
+collision_layer = 1280
+collision_mask = 1280
+gravity_scale = 0.5
+can_sleep = false
+
+[node name="Platform" type="Sprite2D" parent="RigidBody2d"]
+position = Vector2(0.179657, -1.99191)
+rotation = 0.0899515
+scale = Vector2(1, 1)
+texture = ExtResource("8_w2liv")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="RigidBody2d"]
+position = Vector2(-2.93643, -0.998444)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ejvar")
+
+[node name="Cuttable" type="StaticBody2D" parent="."]
+position = Vector2(410, 224)
+collision_layer = 1536
+collision_mask = 1536
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Cuttable"]
+polygon = PackedVector2Array(-9, -10, 6, 8, 12, 9, -4, -10)
+
+[node name="Cuttable" type="Sprite2D" parent="Cuttable"]
+texture = ExtResource("9_pbycc")
+
+[node name="Cuttable2" type="StaticBody2D" parent="."]
+process_mode = 3
+position = Vector2(410, 224)
+collision_layer = 768
+collision_mask = 768
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Cuttable2"]
+polygon = PackedVector2Array(-148, 65, -148, 76, -150, 78, -146, 78, -146, 61, -150, 61)
+
+[node name="Cuttable2" type="Sprite2D" parent="Cuttable2"]
+position = Vector2(-150, 61)
+texture = ExtResource("10_lf1nd")
+centered = false
+
+[node name="MouseFollower" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 1792
+collision_mask = 1792
 script = ExtResource("1_4oh7q")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="MouseFollower"]
 shape = SubResource("CircleShape2D_pybpq")
 
 [node name="ColorRect" type="ColorRect" parent="MouseFollower"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -35,4 +238,33 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="RayCast2d" type="RayCast2D" parent="MouseFollower"]
+target_position = Vector2(0, 0)
+collision_mask = 1792
+
+[node name="Camera2d" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(411, 190)
+collision_layer = 1280
+collision_mask = 1280
+gravity_scale = 0.5
+max_contacts_reported = 1
+contact_monitor = true
+can_sleep = false
+script = ExtResource("12_fpfd4")
+
+[node name="Sprite2d" type="Sprite2D" parent="Ball"]
+texture = ExtResource("12_v1qx6")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_t6jij")
+
 [connection signal="visibility_changed" from="." to="MouseFollower" method="_on_mouse_game_visibility_changed"]
+[connection signal="area_entered" from="Axe" to="Axe" method="_on_axe_area_entered"]
+[connection signal="body_entered" from="Axe" to="Axe" method="_on_axe_body_entered"]
+[connection signal="area_entered" from="MouseFollower" to="MouseFollower" method="_on_mouse_follower_area_entered"]
+[connection signal="body_entered" from="MouseFollower" to="MouseFollower" method="_on_mouse_follower_body_entered"]
+[connection signal="player_hit" from="MouseFollower" to="Axe" method="_on_mouse_follower_player_hit"]
+[connection signal="body_entered" from="Ball" to="Ball" method="_on_ball_body_entered"]

@@ -39,3 +39,10 @@ func _physics_process(delta):
 	elif direction > 0: $AnimatedSprite2d.flip_h = false
 
 	move_and_slide()
+
+
+func _on_platformer_2d_visibility_changed() -> void:
+	if get_parent().visible:
+		$Camera2d.current = true
+	else:
+		$Camera2d.current = false

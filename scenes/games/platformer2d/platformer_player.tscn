@@ -43,7 +43,6 @@ animation = &"walking"
 offset = Vector2(0, -32)
 
 [node name="Camera2d" type="Camera2D" parent="."]
-current = true
 process_callback = 0
 smoothing_enabled = true
 smoothing_speed = 8.0
