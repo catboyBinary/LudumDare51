@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://db82let5qyuy7"]
+
+[sub_resource type="PrimitiveMesh" id="PrimitiveMesh_j0e87"]
+resource_local_to_scene = false
+resource_name = ""
+lightmap_size_hint = Vector2i(0, 0)
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+flip_faces = false
+
+[node name="Meshes" type="Node3D"]
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrimitiveMesh_j0e87")

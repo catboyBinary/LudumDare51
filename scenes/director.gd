@@ -9,7 +9,7 @@ var current_game: int = 0
 @export var game_switcher: Node
 
 var themeCount = 0
-const themes = [
+const themes: Array[Theme] = [
 	preload("res://themes/theme.tres"),
 	preload("res://themes/theme1.tres"),
 	preload("res://themes/theme2.tres"),
@@ -34,8 +34,7 @@ func _on_timer_timeout() -> void:
 			#current_game.queue_free()
 			iters = -1
 			$Camera2d/CameraShake.start()
-			themeCount += 1
-			if themeCount == 4: themeCount = 0
+			themeCount = (themeCount + 1) % len(themes)
 			theme = themes[themeCount]
 			game_switcher.next_game()
 			

@@ -25,7 +25,7 @@ theme_override_font_sizes/font_size = 32
 text = "Time left: 10s"
 
 [node name="GameAnnounce" parent="." instance=ExtResource("2_cio78")]
-offset_top = 541.0
+offset_top = -51.0
 
 [node name="WellDone" type="ColorRect" parent="."]
 visible = false
