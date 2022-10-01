@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6flcmsleqejd"]
+[gd_scene load_steps=5 format=3 uid="uid://b6flcmsleqejd"]
 
-[ext_resource type="PackedScene" uid="uid://bq8d5ufb637tg" path="res://scenes/director.tscn" id="1_s7l41"]
+[ext_resource type="Script" path="res://scenes/GameSwitcher.gd" id="1_mjxak"]
+[ext_resource type="PackedScene" uid="uid://ddnk115yeap5d" path="res://scenes/director.tscn" id="1_s7l41"]
 [ext_resource type="PackedScene" uid="uid://cbkt01dckr06x" path="res://scenes/games/fps/fps_game.tscn" id="2_hlww5"]
+[ext_resource type="PackedScene" uid="uid://c64rfvnq3nwdh" path="res://scenes/games/mouse_labyrinth/mouse_game.tscn" id="3_56twc"]
 
 [node name="main" type="Node"]
 
-[node name="FPSGame" parent="." instance=ExtResource("2_hlww5")]
-process_mode = 1
+[node name="Games" type="Node" parent="."]
+script = ExtResource("1_mjxak")
 
-[node name="Director" parent="." node_paths=PackedStringArray("game_field", "current_game") instance=ExtResource("1_s7l41")]
-game_field = NodePath("..")
-current_game = NodePath("../FPSGame")
+[node name="FPSGame" parent="Games" instance=ExtResource("2_hlww5")]
+process_mode = 4
+visible = false
+
+[node name="MouseGame" parent="Games" instance=ExtResource("3_56twc")]
+process_mode = 4
+visible = false
+
+[node name="Director" parent="." node_paths=PackedStringArray("game_switcher") instance=ExtResource("1_s7l41")]
+game_switcher = NodePath("../Games")

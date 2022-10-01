@@ -18,10 +18,16 @@ _global_script_classes=[{
 "class": &"GameAnnounce",
 "language": &"GDScript",
 "path": "res://scenes/gui/game_announce.gd"
+}, {
+"base": "Node",
+"class": &"GameSwitcher",
+"language": &"GDScript",
+"path": "res://scenes/GameSwitcher.gd"
 }]
 _global_script_class_icons={
 "Fade": "",
-"GameAnnounce": ""
+"GameAnnounce": "",
+"GameSwitcher": ""
 }
 
 [application]

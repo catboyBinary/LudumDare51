@@ -15,7 +15,7 @@ size = Vector2(20, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aki57"]
 
-[node name="FPSGame" type="Node"]
+[node name="FPSGame" type="Node3D"]
 
 [node name="FPSPlayer" parent="." instance=ExtResource("1_etnqk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.37014, 1.75)
