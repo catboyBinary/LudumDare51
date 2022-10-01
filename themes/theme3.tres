@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://gx8qcceyrr68"]
+
+[ext_resource type="FontFile" uid="uid://cjrm1ty8gn5u6" path="res://fonts/712_serif.ttf" id="1_dl6vk"]
+
+[resource]
+default_font = ExtResource("1_dl6vk")
+default_font_size = 18
+Label/font_sizes/font_size = 72

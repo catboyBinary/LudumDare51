@@ -27,6 +27,6 @@ _global_script_class_icons={
 [application]
 
 config/name="LudumDare51"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"

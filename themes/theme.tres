@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://w4x6oqbilshs"]
+
+[ext_resource type="FontFile" uid="uid://c1yyhrhc4yrq2" path="res://fonts/AlegreyaSans-Light.ttf" id="1_0e5qs"]
+
+[resource]
+default_font = ExtResource("1_0e5qs")
+default_font_size = 18
+Label/font_sizes/font_size = 72

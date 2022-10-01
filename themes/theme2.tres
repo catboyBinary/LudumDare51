@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://3l3w0qwquoa0"]
+
+[ext_resource type="FontFile" uid="uid://dftrgl22oeih2" path="res://fonts/5yearsoldfont.ttf" id="1_r5vx6"]
+
+[resource]
+default_font = ExtResource("1_r5vx6")
+default_font_size = 16
+Label/font_sizes/font_size = 72
