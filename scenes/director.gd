@@ -6,10 +6,11 @@ extends Control
 @onready var well_done: ColorRect = $WellDone
 @export var game_field: Node
 
-var current_game: Node
+@export var current_game: Node
 var next_game: Node
 const games: Array[Resource] = [
-	preload("res://scenes/games/button_game.tscn")
+	preload("res://scenes/games/button_game.tscn"),
+	preload("res://scenes/games/fps/fps_game.tscn")
 ]
 
 # Вместо того чтобы постоянно отслеживать время,
@@ -19,7 +20,6 @@ var iters: int = 0
 
 func _ready() -> void:
 	timer.start()
-	current_game = games[0].instantiate()
 	game_field.call_deferred("add_child", current_game)
 
 func _on_timer_timeout() -> void:
@@ -28,6 +28,7 @@ func _on_timer_timeout() -> void:
 			game_announce.announce("PRESS THE BUTTON")
 		19:
 			#current_game.queue_free()
+			current_game.process_mode = Node.PROCESS_MODE_DISABLED
 			iters = -1
 			
 	iters += 1
