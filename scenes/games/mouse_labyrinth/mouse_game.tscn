@@ -50,7 +50,6 @@ collision_layer = 4352
 collision_mask = 4352
 
 [node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Background/Overall"]
-build_mode = 1
 polygon = PackedVector2Array(267, 221, 279, 203, 294, 176, 301, 160, 304, 144, 308, 134, 315, 126, 321, 109, 324, 96, 326, 87, 314, 86, 309, 80, 308, 70, 308, 46, 313, 38, 324, 36, 355, 39, 374, 38, 381, 38, 387, 43, 389, 52, 387, 57, 387, 71, 386, 82, 379, 90, 370, 90, 365, 88, 362, 92, 362, 100, 365, 124, 365, 139, 365, 152, 361, 199, 357, 221, 376, 210, 382, 208, 389, 202, 390, 191, 392, 181, 395, 177, 395, 171, 384, 171, 384, 166, 398, 165, 400, 158, 400, 149, 397, 145, 387, 144, 381, 141, 378, 134, 380, 127, 384, 124, 446, 125, 470, 128, 533, 0, 0, 1, 1, 481, 640, 480, 640, 0, 533, 0, 470, 128, 535, 127, 549, 131, 556, 141, 557, 151, 554, 162, 550, 165, 542, 172, 514, 173, 505, 171, 499, 177, 500, 191, 505, 212, 506, 349, 505, 394, 498, 403, 469, 406, 464, 408, 411, 411, 350, 411, 350, 410, 329, 410, 329, 417, 331, 421, 331, 433, 327, 438, 319, 442, 313, 442, 303, 436, 294, 397, 294, 373, 292, 369, 289, 368, 272, 368, 272, 367, 247, 367, 239, 364, 233, 357, 233, 354, 231, 351, 230, 343, 228, 341, 218, 341, 218, 354, 223, 355, 227, 361, 227, 369, 222, 376, 218, 376, 206, 376, 199, 372, 196, 364, 196, 357, 198, 348, 197, 341, 198, 324, 208, 319, 223, 318, 237, 318, 245, 324, 250, 333, 253, 337, 256, 337, 257, 331, 251, 323, 246, 314, 248, 305, 245, 302, 234, 302, 222, 301, 216, 295, 217, 287, 225, 282, 264, 286, 260, 272, 260, 242)
 
 [node name="RightLoopPart" type="StaticBody2D" parent="Background"]
@@ -164,7 +163,6 @@ texture = ExtResource("7_0dyx4")
 [node name="PinJoint2d" type="PinJoint2D" parent="."]
 position = Vector2(430, 209)
 rotation = -0.0899515
-scale = Vector2(1, 1)
 node_a = NodePath("../RigidBody2d")
 node_b = NodePath("../Background/LeftLoopPart")
 disable_collision = false
@@ -173,7 +171,6 @@ disable_collision = false
 process_mode = 3
 position = Vector2(413, 211)
 rotation = -0.0899515
-scale = Vector2(1, 1)
 collision_layer = 1280
 collision_mask = 1280
 gravity_scale = 0.5
@@ -182,12 +179,10 @@ can_sleep = false
 [node name="Platform" type="Sprite2D" parent="RigidBody2d"]
 position = Vector2(0.179657, -1.99191)
 rotation = 0.0899515
-scale = Vector2(1, 1)
 texture = ExtResource("8_w2liv")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="RigidBody2d"]
 position = Vector2(-2.93643, -0.998444)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ejvar")
 
 [node name="Cuttable" type="StaticBody2D" parent="."]
