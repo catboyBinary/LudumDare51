@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmjnx64mtg5x7"]
+
+[ext_resource type="Texture2D" uid="uid://d28tkq2r8jdng" path="res://sprites/tilemap.png" id="1_kabo3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvv34"]
+size = Vector2(42, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yrr5"]
+atlas = ExtResource("1_kabo3")
+region = Rect2(0, 124, 16, 4)
+
+[sub_resource type="Gradient" id="Gradient_qem45"]
+colors = PackedColorArray(0.996078, 0.556863, 0.219608, 1, 1, 0.745098, 0.4, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a6sev"]
+gradient = SubResource("Gradient_qem45")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hia3u"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, -32, 0)
+angular_velocity_min = -75.79
+angular_velocity_max = 54.14
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_a6sev")
+
+[node name="jump_pad" type="StaticBody2D" groups=["jump_pad"]]
+
+[node name="Area2d" type="Area2D" parent="." groups=["jump_pad"]]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d" groups=["jump_pad"]]
+shape = SubResource("RectangleShape2D_cvv34")
+
+[node name="Sprite2d" type="Sprite2D" parent="." groups=["jump_pad"]]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_2yrr5")
+
+[node name="GpuParticles2d" type="GPUParticles2D" parent="." groups=["jump_pad"]]
+position = Vector2(0, 1)
+z_index = -1
+amount = 24
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_hia3u")

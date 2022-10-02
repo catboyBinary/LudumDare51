@@ -177,8 +177,15 @@ polygon = PackedVector2Array(-20, 5.00003, -10, 8.00003, 20, 8.00003, 19, 11, 0,
 position = Vector2(389, 401)
 texture = ExtResource("7_0dyx4")
 
-[node name="Platform" type="RigidBody2D" parent="."]
-process_priority = -1
+[node name="PinJoint2d" type="PinJoint2D" parent="."]
+position = Vector2(430, 209)
+rotation = -0.0899515
+node_a = NodePath("../RigidBody2d")
+node_b = NodePath("../Background/LeftLoopPart")
+disable_collision = false
+
+[node name="RigidBody2d" type="RigidBody2D" parent="."]
+process_mode = 3
 position = Vector2(413, 211)
 rotation = -0.0899515
 collision_layer = 1280
