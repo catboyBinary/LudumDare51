@@ -5,7 +5,7 @@ extends Area2D
 func _ready() -> void:
 	set_process(false)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if position == uncorked_position:
 		monitorable = false
 		set_process(false)

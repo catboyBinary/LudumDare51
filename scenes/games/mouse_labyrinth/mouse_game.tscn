@@ -35,7 +35,7 @@ size = Vector2(5, 46)
 radius = 7.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejvar"]
-size = Vector2(32.1271, 3.99391)
+size = Vector2(35, 3.99391)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pybpq"]
 radius = 1.0
@@ -177,13 +177,6 @@ polygon = PackedVector2Array(-20, 5.00003, -10, 8.00003, 20, 8.00003, 19, 11, 0,
 position = Vector2(389, 401)
 texture = ExtResource("7_0dyx4")
 
-[node name="PinJoint2d" type="PinJoint2D" parent="."]
-position = Vector2(430, 209)
-rotation = -0.0899515
-node_a = NodePath("../RigidBody2d")
-node_b = NodePath("../Background/LeftLoopPart")
-disable_collision = false
-
 [node name="RigidBody2d" type="RigidBody2D" parent="."]
 process_mode = 3
 position = Vector2(413, 211)
@@ -194,13 +187,15 @@ gravity_scale = 0.5
 can_sleep = false
 freeze = true
 
-[node name="Platform" type="Sprite2D" parent="Platform"]
-position = Vector2(0.179657, -1.99191)
-rotation = 0.0899515
+[node name="Platform" type="Sprite2D" parent="RigidBody2d"]
+rotation = 0.179903
+scale = Vector2(1, 1)
 texture = ExtResource("8_w2liv")
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Platform"]
-position = Vector2(-2.93643, -0.998444)
+[node name="CollisionShape2d" type="CollisionShape2D" parent="RigidBody2d"]
+position = Vector2(-0.497986, -0.0448914)
+rotation = 0.0899515
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ejvar")
 
 [node name="Cuttable" type="StaticBody2D" parent="." node_paths=PackedStringArray("platform")]
@@ -209,7 +204,7 @@ position = Vector2(410, 224)
 collision_layer = 1536
 collision_mask = 1536
 script = ExtResource("13_1rrwl")
-platform = NodePath("../Platform")
+platform = NodePath("../RigidBody2d")
 
 [node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Cuttable"]
 polygon = PackedVector2Array(-9, -10, 6, 8, 12, 9, -4, -10)

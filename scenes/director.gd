@@ -3,7 +3,6 @@ extends Control
 @onready var label: Label = $TimerLabel
 @onready var timer: Timer = $Timer
 @onready var game_announce: GameAnnounce = $GameAnnounce
-@onready var well_done: ColorRect = $WellDone
 @onready var camera: Camera2D = $Camera2d
 
 var current_game: int = 0

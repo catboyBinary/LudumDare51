@@ -38,7 +38,7 @@ func _on_mouse_game_visibility_changed() -> void:
 		get_parent().get_node("Camera2d").current = false
 		just_switched = true
 
-func _on_mouse_follower_body_entered(body: Node2D) -> void:
+func _on_mouse_follower_body_entered(_body: Node2D) -> void:
 	player_respawn()
 
 func _on_mouse_follower_area_entered(area: Area2D) -> void:

@@ -6,7 +6,7 @@ func _ready() -> void:
 	set_physics_process(false)
 	position = default_pos
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	position = get_viewport().get_mouse_position()
 	if Input.is_action_just_pressed("click"):
 		monitoring = true
@@ -19,7 +19,7 @@ func disable_axe():
 func _on_axe_body_entered(body: Node2D) -> void:
 	body.queue_free()
 
-func _on_axe_area_entered(area: Area2D) -> void:
+func _on_axe_area_entered(_area: Area2D) -> void:
 	set_physics_process(true)
 
 func _on_mouse_follower_player_hit() -> void:

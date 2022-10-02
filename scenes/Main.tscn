@@ -14,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
@@ -38,6 +39,7 @@ process_mode = 4
 visible = false
 
 [node name="GameOverlay" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="Director" parent="GameOverlay" node_paths=PackedStringArray("game_switcher") instance=ExtResource("1_s7l41")]
 game_switcher = NodePath("../../SubViewportContainer/SubViewport/Games")
