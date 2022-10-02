@@ -189,13 +189,11 @@ freeze = true
 
 [node name="Platform" type="Sprite2D" parent="RigidBody2d"]
 rotation = 0.179903
-scale = Vector2(1, 1)
 texture = ExtResource("8_w2liv")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="RigidBody2d"]
 position = Vector2(-0.497986, -0.0448914)
 rotation = 0.0899515
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ejvar")
 
 [node name="Cuttable" type="StaticBody2D" parent="." node_paths=PackedStringArray("platform")]

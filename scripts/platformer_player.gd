@@ -3,8 +3,9 @@ extends CharacterBody2D
 
 const SPEED := 400.0
 const JUMP_VELOCITY := 500.0
+var spawn_position : Vector2 = Vector2(80,304)
+var last_up_direction : Vector2 = up_direction
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var base_gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravity: float = base_gravity * 1.2
 
@@ -59,8 +60,14 @@ func _on_area_2d_area_entered(area) -> void:
 		velocity.y = -JUMP_VELOCITY * area.get_parent().scale.y * 1.35
 	# Пад не может ведь быть прыжковым и гравитационным одновременно?
 	# if area.is_in_group("gravity_pad"):
+	# какая в жопу разница???
 	elif area.is_in_group("gravity_pad"):
+		velocity.y = -JUMP_VELOCITY * area.get_parent().scale.y
 		up_direction = Vector2(0, area.get_parent().scale.y)
 		gravity = -base_gravity * 1.2 * up_direction.y
 		$AnimatedSprite2d.flip_v = bool(up_direction.y+1)
 		
+func die() -> void:
+	up_direction = last_up_direction
+	gravity = base_gravity * 1.2 * -up_direction.y
+	position = spawn_position

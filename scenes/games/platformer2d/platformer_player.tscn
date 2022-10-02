@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://boas1dhm46p5s" path="res://sprites/barsik.png" id="2_iuvdw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngqh6"]
-size = Vector2(30, 35)
+size = Vector2(30, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3s43h"]
 atlas = ExtResource("2_iuvdw")
@@ -70,9 +70,8 @@ script = ExtResource("1_hklah")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(0, 22.5)
+position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_ngqh6")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 40)
@@ -98,7 +97,7 @@ libraries = {
 [node name="Area2d" type="Area2D" parent="."]
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
-position = Vector2(0, 22.5)
+position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_ngqh6")
 metadata/_edit_group_ = true
 
