@@ -23,7 +23,6 @@ func _process(_delta: float) -> void:
 			if current_area:
 				if current_area.is_in_group("Cork"):
 					current_area.uncork()
-		
 	
 func player_respawn():
 	emit_signal("player_hit")

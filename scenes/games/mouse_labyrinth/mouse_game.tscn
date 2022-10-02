@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c64rfvnq3nwdh"]
+[gd_scene load_steps=24 format=3 uid="uid://c64rfvnq3nwdh"]
 
 [ext_resource type="Script" path="res://scenes/games/mouse_labyrinth/MouseFollower.gd" id="1_4oh7q"]
 [ext_resource type="Texture2D" uid="uid://bu42yt7k4b64p" path="res://scenes/games/mouse_labyrinth/sprites/ok/Фон Сведено.PNG" id="1_td0gf"]
@@ -14,9 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://b7gycoh3njr52" path="res://scenes/games/mouse_labyrinth/sprites/ok/Cuttable 2.PNG" id="10_lf1nd"]
 [ext_resource type="Script" path="res://scenes/games/mouse_labyrinth/Ball.gd" id="12_fpfd4"]
 [ext_resource type="Texture2D" uid="uid://cdbda6j7onkul" path="res://scenes/games/mouse_labyrinth/sprites/ok/Ball.PNG" id="12_v1qx6"]
+[ext_resource type="Script" path="res://scenes/games/mouse_labyrinth/PlatformFoundation.gd" id="13_1rrwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ivpd"]
 radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6jij"]
+radius = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y78x1"]
 size = Vector2(69, 4)
@@ -36,9 +40,6 @@ size = Vector2(32.1271, 3.99391)
 [sub_resource type="CircleShape2D" id="CircleShape2D_pybpq"]
 radius = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t6jij"]
-radius = 12.0
-
 [node name="MouseGame" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -50,7 +51,6 @@ collision_layer = 4352
 collision_mask = 4352
 
 [node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Background/Overall"]
-build_mode = 1
 polygon = PackedVector2Array(267, 221, 279, 203, 294, 176, 301, 160, 304, 144, 308, 134, 315, 126, 321, 109, 324, 96, 326, 87, 314, 86, 309, 80, 308, 70, 308, 46, 313, 38, 324, 36, 355, 39, 374, 38, 381, 38, 387, 43, 389, 52, 387, 57, 387, 71, 386, 82, 379, 90, 370, 90, 365, 88, 362, 92, 362, 100, 365, 124, 365, 139, 365, 152, 361, 199, 357, 221, 376, 210, 382, 208, 389, 202, 390, 191, 392, 181, 395, 177, 395, 171, 384, 171, 384, 166, 398, 165, 400, 158, 400, 149, 397, 145, 387, 144, 381, 141, 378, 134, 380, 127, 384, 124, 446, 125, 470, 128, 533, 0, 0, 1, 1, 481, 640, 480, 640, 0, 533, 0, 470, 128, 535, 127, 549, 131, 556, 141, 557, 151, 554, 162, 550, 165, 542, 172, 514, 173, 505, 171, 499, 177, 500, 191, 505, 212, 506, 349, 505, 394, 498, 403, 469, 406, 464, 408, 411, 411, 350, 411, 350, 410, 329, 410, 329, 417, 331, 421, 331, 433, 327, 438, 319, 442, 313, 442, 303, 436, 294, 397, 294, 373, 292, 369, 289, 368, 272, 368, 272, 367, 247, 367, 239, 364, 233, 357, 233, 354, 231, 351, 230, 343, 228, 341, 218, 341, 218, 354, 223, 355, 227, 361, 227, 369, 222, 376, 218, 376, 206, 376, 199, 372, 196, 364, 196, 357, 198, 348, 197, 341, 198, 324, 208, 319, 223, 318, 237, 318, 245, 324, 250, 333, 253, 337, 256, 337, 257, 331, 251, 323, 246, 314, 248, 305, 245, 302, 234, 302, 222, 301, 216, 295, 217, 287, 225, 282, 264, 286, 260, 272, 260, 242)
 
 [node name="RightLoopPart" type="StaticBody2D" parent="Background"]
@@ -101,6 +101,22 @@ texture = ExtResource("3_jyx3c")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Axe"]
 shape = SubResource("CircleShape2D_6ivpd")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(411, 190)
+collision_layer = 1280
+collision_mask = 1280
+gravity_scale = 0.5
+max_contacts_reported = 1
+contact_monitor = true
+can_sleep = false
+script = ExtResource("12_fpfd4")
+
+[node name="Sprite2d" type="Sprite2D" parent="Ball"]
+texture = ExtResource("12_v1qx6")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_t6jij")
 
 [node name="HorizontalCork" type="Area2D" parent="." groups=["Cork"]]
 position = Vector2(460, 168)
@@ -161,39 +177,32 @@ polygon = PackedVector2Array(-20, 5.00003, -10, 8.00003, 20, 8.00003, 19, 11, 0,
 position = Vector2(389, 401)
 texture = ExtResource("7_0dyx4")
 
-[node name="PinJoint2d" type="PinJoint2D" parent="."]
-position = Vector2(430, 209)
-rotation = -0.0899515
-scale = Vector2(1, 1)
-node_a = NodePath("../RigidBody2d")
-node_b = NodePath("../Background/LeftLoopPart")
-disable_collision = false
-
-[node name="RigidBody2d" type="RigidBody2D" parent="."]
-process_mode = 3
+[node name="Platform" type="RigidBody2D" parent="."]
+process_priority = -1
 position = Vector2(413, 211)
 rotation = -0.0899515
-scale = Vector2(1, 1)
 collision_layer = 1280
 collision_mask = 1280
 gravity_scale = 0.5
 can_sleep = false
+freeze = true
 
-[node name="Platform" type="Sprite2D" parent="RigidBody2d"]
+[node name="Platform" type="Sprite2D" parent="Platform"]
 position = Vector2(0.179657, -1.99191)
 rotation = 0.0899515
-scale = Vector2(1, 1)
 texture = ExtResource("8_w2liv")
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="RigidBody2d"]
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Platform"]
 position = Vector2(-2.93643, -0.998444)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ejvar")
 
-[node name="Cuttable" type="StaticBody2D" parent="."]
+[node name="Cuttable" type="StaticBody2D" parent="." node_paths=PackedStringArray("platform")]
+process_priority = -2
 position = Vector2(410, 224)
 collision_layer = 1536
 collision_mask = 1536
+script = ExtResource("13_1rrwl")
+platform = NodePath("../Platform")
 
 [node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="Cuttable"]
 polygon = PackedVector2Array(-9, -10, 6, 8, 12, 9, -4, -10)
@@ -203,6 +212,7 @@ texture = ExtResource("9_pbycc")
 
 [node name="Cuttable2" type="StaticBody2D" parent="."]
 process_mode = 3
+process_priority = -2
 position = Vector2(410, 224)
 collision_layer = 768
 collision_mask = 768
@@ -230,10 +240,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 2.0
-offset_bottom = 2.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 1, 1)
@@ -245,27 +255,11 @@ collision_mask = 1792
 [node name="Camera2d" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(411, 190)
-collision_layer = 1280
-collision_mask = 1280
-gravity_scale = 0.5
-max_contacts_reported = 1
-contact_monitor = true
-can_sleep = false
-script = ExtResource("12_fpfd4")
-
-[node name="Sprite2d" type="Sprite2D" parent="Ball"]
-texture = ExtResource("12_v1qx6")
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("CircleShape2D_t6jij")
-
 [connection signal="visibility_changed" from="." to="MouseFollower" method="_on_mouse_game_visibility_changed"]
 [connection signal="area_entered" from="Axe" to="Axe" method="_on_axe_area_entered"]
 [connection signal="body_entered" from="Axe" to="Axe" method="_on_axe_body_entered"]
+[connection signal="body_entered" from="Ball" to="Ball" method="_on_ball_body_entered"]
 [connection signal="area_entered" from="MouseFollower" to="MouseFollower" method="_on_mouse_follower_area_entered"]
 [connection signal="area_exited" from="MouseFollower" to="MouseFollower" method="_on_mouse_follower_area_exited"]
 [connection signal="body_entered" from="MouseFollower" to="MouseFollower" method="_on_mouse_follower_body_entered"]
 [connection signal="player_hit" from="MouseFollower" to="Axe" method="_on_mouse_follower_player_hit"]
-[connection signal="body_entered" from="Ball" to="Ball" method="_on_ball_body_entered"]
