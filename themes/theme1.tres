@@ -1,11 +1,23 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://bm2ckreqp1ciw"]
 
-[ext_resource type="FontFile" uid="uid://bvwsoxdy5wqgj" path="res://fonts/CraftyGirls.ttf" id="1_acoti"]
+[ext_resource type="FontFile" uid="uid://cllkhhguqbjm8" path="res://fonts/Dancing Script.ttf" id="1_orfmc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71dh8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sd3i"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 6.0
+expand_margin_right = 6.0
 
 [resource]
-default_font = ExtResource("1_acoti")
+default_font = ExtResource("1_orfmc")
 default_font_size = 24
-Button/styles/normal = SubResource("StyleBoxFlat_71dh8")
+Button/styles/normal = SubResource("StyleBoxFlat_7sd3i")
 Label/font_sizes/font_size = 72

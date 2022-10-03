@@ -1,16 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmwpgcvs2frva"]
+[gd_scene load_steps=8 format=3 uid="uid://bmwpgcvs2frva"]
 
 [ext_resource type="Theme" uid="uid://w4x6oqbilshs" path="res://themes/theme.tres" id="1_6fi4d"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_tck17"]
 [ext_resource type="PackedScene" uid="uid://bosg1lufqjpci" path="res://objects/camera_shake.tscn" id="3_xqlbu"]
 [ext_resource type="AudioStream" uid="uid://d0b52bckrl5xd" path="res://sounds/changeTheme.wav" id="4_b8r6r"]
 [ext_resource type="AudioStream" uid="uid://cfpef4lbo4k38" path="res://music/mainMenu.ogg" id="5_qanvo"]
+[ext_resource type="Texture2D" uid="uid://bv8062yef75yg" path="res://sprites/gorod2.png" id="6_v613v"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5to3j"]
+diffuse_texture = ExtResource("6_v613v")
+texture_filter = 1
+texture_repeat = 2
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6fi4d")
@@ -24,12 +32,216 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -190.0
-offset_top = -38.0
+offset_top = -62.0
 offset_right = 190.0
-offset_bottom = 38.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "LudumDare51"
+text = "Genre Hopper"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = 266.0
+offset_right = 45.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Programmers"
+
+[node name="Label3" type="Label" parent="Label2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = 21.0
+offset_right = 174.5
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "b1n4ry
+belowdecent"
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 342.0
+offset_top = -211.0
+offset_right = 605.0
+offset_bottom = -155.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="Label6"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 56.0
+offset_right = 407.0
+offset_bottom = 72.0
+value = 50.0
+
+[node name="HSlider2" type="HSlider" parent="Label6"]
+layout_mode = 1
+offset_left = 143.0
+offset_top = 88.0
+offset_right = 407.0
+offset_bottom = 104.0
+value = 50.0
+
+[node name="Label3" type="Label" parent="Label6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = 21.0
+offset_right = 62.5
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Music
+"
+
+[node name="Label4" type="Label" parent="Label6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = 53.0
+offset_right = 62.5
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Sound"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = 408.0
+offset_right = -45.0
+offset_bottom = 464.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "2D Art"
+
+[node name="Label3" type="Label" parent="Label4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.5
+offset_top = 14.0
+offset_right = 169.5
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "b1n4ry
+pwoba
+Archy"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 347.0
+offset_right = 277.0
+offset_bottom = 403.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Musicians"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="Label3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = 23.0
+offset_right = 94.5
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "b1n4ry
+belowdecent"
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = 555.0
+offset_right = 183.0
+offset_bottom = 611.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "This game has been made 
+in 72 hours for Ludum Dare 51 GameJam"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = 616.0
+offset_right = 207.0
+offset_bottom = 672.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Well, actually if you don't count the time we slept and did our tasks, 
+and that time where i got bored and started watching anime, you get a total of 20-26 hours"
+horizontal_alignment = 1
 
 [node name="Camera2d" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -43,13 +255,13 @@ bus = &"SFX"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qanvo")
-autoplay = true
+bus = &"Music"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
 
-[node name="Button" type="Button" parent="."]
+[node name="Play" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,4 +277,109 @@ grow_vertical = 2
 focus_mode = 0
 text = "Play"
 
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = 179.5
+offset_right = 96.5
+offset_bottom = 220.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "Exit"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = 131.5
+offset_right = 96.5
+offset_bottom = 172.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "Credits
+"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = 83.5
+offset_right = 96.5
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "Options
+"
+
+[node name="Options2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 351.5
+offset_top = 179.5
+offset_right = 544.5
+offset_bottom = 220.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "Return
+"
+
+[node name="Credits2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = 651.5
+offset_right = 96.5
+offset_bottom = 692.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "Return
+"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.75, 0.4)
+
+[node name="Sprite2d" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.368627, 0.368627, 0.368627, 1)
+position = Vector2(1801, 330)
+scale = Vector2(1.807, 1.64592)
+texture = SubResource("CanvasTexture_5to3j")
+region_enabled = true
+region_rect = Rect2(-1086.84, 1.928, 2000, 423.417)
+
+[connection signal="value_changed" from="Label6/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Label6/HSlider2" to="." method="_on_h_slider_2_value_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Options2" to="." method="_on_options_2_pressed"]
+[connection signal="pressed" from="Credits2" to="." method="_on_credits_2_pressed"]

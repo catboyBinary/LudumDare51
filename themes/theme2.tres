@@ -1,8 +1,34 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://3l3w0qwquoa0"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://3l3w0qwquoa0"]
 
 [ext_resource type="FontFile" uid="uid://dftrgl22oeih2" path="res://fonts/5yearsoldfont.ttf" id="1_r5vx6"]
+[ext_resource type="Texture2D" uid="uid://dt6vuwhqhrkb5" path="res://sprites/button1.png" id="1_svy5e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6jng5"]
+texture = ExtResource("1_svy5e")
+region_rect = Rect2(0, 0, 1000, 300)
+modulate_color = Color(0.847059, 0.505882, 0.737255, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o065t"]
+texture = ExtResource("1_svy5e")
+region_rect = Rect2(0, 0, 1000, 300)
+modulate_color = Color(0.886275, 0.886275, 0.886275, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vnat1"]
+texture = ExtResource("1_svy5e")
+region_rect = Rect2(0, 0, 1000, 300)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_myvsl"]
+texture = ExtResource("1_svy5e")
+region_rect = Rect2(0, 0, 1000, 300)
+modulate_color = Color(0.862745, 0.321569, 0.713726, 1)
 
 [resource]
 default_font = ExtResource("1_r5vx6")
 default_font_size = 24
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxTexture_6jng5")
+Button/styles/hover = SubResource("StyleBoxTexture_o065t")
+Button/styles/normal = SubResource("StyleBoxTexture_vnat1")
+Button/styles/pressed = SubResource("StyleBoxTexture_myvsl")
 Label/font_sizes/font_size = 72
