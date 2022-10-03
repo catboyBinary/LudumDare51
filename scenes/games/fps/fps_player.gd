@@ -8,6 +8,8 @@ var y_movement: Vector3 = Vector3.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	set_physics_process(true)
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -31,3 +33,16 @@ func _physics_process(delta: float) -> void:
 		target_fov = 100
 	camera.fov = lerp(camera.fov, target_fov, 0.05)
 	move_and_slide()
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Player"):
+		finish_game()
+
+func finish_game():
+	set_physics_process(false)
+	get_parent().add_to_group("completed")
+	$Camera3d.current = false
+	var camera = get_parent().get_child(0)
+	camera.current = true
+	camera.get_child(0).visible = true

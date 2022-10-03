@@ -27,17 +27,13 @@ func _ready() -> void:
 	
 
 func _on_timer_timeout() -> void:
-	match iters:
-		0:
-			game_announce.announce("PRESS THE BUTTON")
-		19:
-			#current_game.queue_free()
-			iters = -1
-			$Camera2d/CameraShake.start()
-			themeCount = (themeCount + 1) % len(themes)
-			theme = themes[themeCount]
-			game_switcher.next_game()
-			
+	if iters == 19:
+		#current_game.queue_free()
+		iters = -1
+		$Camera2d/CameraShake.start()
+		themeCount = (themeCount + 1) % len(themes)
+		theme = themes[themeCount]
+		game_switcher.next_game()
 	iters += 1
 	
 	label.set_text(str(10.0 - 0.5 * iters) + "s")

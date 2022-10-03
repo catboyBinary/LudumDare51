@@ -5,6 +5,12 @@ var loops = 0
 var children: Array[Node]
 var count: int
 var current: int = 0
+
+var game_titles: Array[String] = [
+	"Reach the Top!",
+	"Mouse Trap!",
+	"Cat-a-thon!"
+]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	children = get_children()
@@ -15,15 +21,20 @@ func _ready() -> void:
 func next_game() -> void:
 	children[current].process_mode = Node.PROCESS_MODE_DISABLED
 	children[current].hide()
-	if children[current].name == "Platformer2D": children[current].find_child("ParallaxBackground").hide()
+	if children[current].name == "Platformer2D": 
+		children[current].find_child("ParallaxBackground").hide()
 	if children[(current + 1) % count].is_in_group("completed"): 
-		children.erase(children[(current + 1) % count])
+		var target_index := (current + 1) % count
+		children.erase(children[target_index])
+		# game_titles.erase(game_titles[target_index])
 		count -= 1
 		next_game()
 		return
 	current = (current + 1) % count
 	children[current].process_mode = Node.PROCESS_MODE_INHERIT
-	if children[current].name == "Platformer2D": children[current].find_child("ParallaxBackground").show()
+	
+	if children[current].name == "Platformer2D": 
+		children[current].find_child("ParallaxBackground").show()
 	children[current].show()
 	if loops < 5: loops += 1
 	else: loops = 0

@@ -15,6 +15,7 @@ mesh = SubResource("CylinderMesh_dun80")
 
 [node name="Camera3d" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+current = true
 fov = 100.0
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]

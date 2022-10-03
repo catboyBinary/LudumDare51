@@ -19,6 +19,8 @@ script = ExtResource("1_a4hkf")
 wait_time = 0.5
 
 [node name="TimerLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
 offset_left = 10.0
 offset_top = 4.0
 offset_right = 103.0
@@ -32,6 +34,7 @@ theme_override_font_sizes/font_size = 32
 text = "10s"
 
 [node name="GameAnnounce" parent="." instance=ExtResource("2_cio78")]
+layout_mode = 1
 offset_top = -51.0
 
 [node name="Camera2d" type="Camera2D" parent="."]
