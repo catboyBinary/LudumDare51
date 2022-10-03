@@ -10,11 +10,12 @@
 script = ExtResource("1_mnd7j")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CylinderMesh_dun80")
 
 [node name="Camera3d" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-fov = 117.504
+fov = 100.0
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_b6bgt")

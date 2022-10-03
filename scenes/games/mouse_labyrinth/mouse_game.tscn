@@ -353,5 +353,3 @@ shape = SubResource("RectangleShape2D_qjwlr")
 [connection signal="area_exited" from="MouseFollower" to="MouseFollower" method="_on_mouse_follower_area_exited"]
 [connection signal="body_entered" from="MouseFollower" to="MouseFollower" method="_on_mouse_follower_body_entered"]
 [connection signal="player_hit" from="MouseFollower" to="Axe" method="_on_mouse_follower_player_hit"]
-[connection signal="area_entered" from="BlueKey" to="MouseFollower" method="_on_blue_key_area_entered"]
-[connection signal="area_entered" from="BlueKey2" to="MouseFollower" method="_on_red_key_area_entered"]
