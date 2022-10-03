@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5pgwoxlc7iwt"]
+
+[ext_resource type="Script" path="res://objects/moving_platform.gd" id="1_a01cx"]
+[ext_resource type="Texture2D" uid="uid://c8whsmvalyqj5" path="res://sprites/tilemap2.png" id="2_c0ty3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j65hk"]
+atlas = ExtResource("2_c0ty3")
+region = Rect2(32, 96, 32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf3y0"]
+size = Vector2(96, 48)
+
+[node name="moving_platform" type="AnimatableBody2D"]
+script = ExtResource("1_a01cx")
+keyframes = []
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_j65hk")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bf3y0")

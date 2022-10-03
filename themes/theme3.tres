@@ -4,5 +4,5 @@
 
 [resource]
 default_font = ExtResource("1_dl6vk")
-default_font_size = 18
+default_font_size = 24
 Label/font_sizes/font_size = 72

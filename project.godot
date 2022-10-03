@@ -37,6 +37,10 @@ run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://bus.tres"
+
 [display]
 
 window/size/viewport_width=640

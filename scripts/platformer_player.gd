@@ -45,6 +45,7 @@ func _physics_process(delta) -> void:
 	if (direction != 0):
 		$AnimatedSprite2d.flip_h = direction < 0
 
+	if position.y < -4000 or position.y > 850: die()
 	move_and_slide()
 
 
@@ -57,7 +58,8 @@ func _on_platformer_2d_visibility_changed() -> void:
 
 func _on_area_2d_area_entered(area) -> void:
 	if area.is_in_group("jump_pad"): 
-		velocity.y = -JUMP_VELOCITY * area.scale.y * 1.35
+		velocity.y = -JUMP_VELOCITY * area.scale.y * 1.35 * area.jump_multiplier
+		$PadSFX.play()
 	# Пад не может ведь быть прыжковым и гравитационным одновременно?
 	# if area.is_in_group("gravity_pad"):
 	# какая в жопу разница???
@@ -66,11 +68,17 @@ func _on_area_2d_area_entered(area) -> void:
 		up_direction = Vector2(0, area.scale.y)
 		gravity = -base_gravity * 1.2 * up_direction.y
 		$AnimatedSprite2d.flip_v = bool(up_direction.y+1)
+		$PadSFX.play()
 	elif area.is_in_group("death"):
 		die()
 	elif area.is_in_group("checkpoint") and (spawn_position != area.position or last_up_direction != up_direction):
 		spawn_position = area.position
 		last_up_direction = up_direction
+		$CheckpointSFX.play()
+	elif area.is_in_group("win") and not get_parent().is_in_group("completed"):
+		get_parent().add_to_group("completed")
+		$CheckpointSFX.play()
+		$WinLabel.show()
 		
 		
 func die() -> void:
@@ -79,3 +87,4 @@ func die() -> void:
 	position = spawn_position
 	velocity = Vector2.ZERO
 	$AnimatedSprite2d.flip_v = bool(up_direction.y+1)
+	$DeathSFX.play()

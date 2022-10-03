@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmjnx64mtg5x7"]
+[gd_scene load_steps=8 format=3 uid="uid://cmjnx64mtg5x7"]
 
+[ext_resource type="Script" path="res://objects/jump_pad.gd" id="1_51q4f"]
 [ext_resource type="Texture2D" uid="uid://d28tkq2r8jdng" path="res://sprites/tilemap.png" id="1_kabo3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvv34"]
@@ -28,6 +29,7 @@ scale_max = 3.0
 color_ramp = SubResource("GradientTexture1D_a6sev")
 
 [node name="jump_pad" type="Area2D" groups=["jump_pad"]]
+script = ExtResource("1_51q4f")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="." groups=["jump_pad"]]
 shape = SubResource("RectangleShape2D_cvv34")

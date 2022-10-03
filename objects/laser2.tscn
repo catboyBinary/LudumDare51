@@ -1,22 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4wn1hxlj82lo"]
+[gd_scene load_steps=10 format=3 uid="uid://dbcwxstugqhlu"]
 
-[ext_resource type="Texture2D" uid="uid://d28tkq2r8jdng" path="res://sprites/tilemap.png" id="1_gp0m2"]
+[ext_resource type="Texture2D" uid="uid://c8whsmvalyqj5" path="res://sprites/tilemap2.png" id="1_6qma8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ntqp"]
-atlas = ExtResource("1_gp0m2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv6ol"]
+atlas = ExtResource("1_6qma8")
 region = Rect2(64, 112, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x41kx"]
-atlas = ExtResource("1_gp0m2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_by8tg"]
+atlas = ExtResource("1_6qma8")
 region = Rect2(80, 112, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hrw85"]
-atlas = ExtResource("1_gp0m2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2780v"]
+atlas = ExtResource("1_6qma8")
 region = Rect2(96, 112, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mttt4"]
 animations = [{
-"frames": [SubResource("AtlasTexture_8ntqp"), SubResource("AtlasTexture_x41kx"), SubResource("AtlasTexture_hrw85")],
+"frames": [SubResource("AtlasTexture_nv6ol"), SubResource("AtlasTexture_by8tg"), SubResource("AtlasTexture_2780v")],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -26,7 +26,7 @@ animations = [{
 size = Vector2(48, 27)
 
 [sub_resource type="Gradient" id="Gradient_j2d6l"]
-colors = PackedColorArray(0.877695, 0.378366, 0.189849, 1, 1, 0.501961, 0.0117647, 0)
+colors = PackedColorArray(0, 0.620854, 0.713639, 1, 0.155671, 0.70331, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ye8bo"]
 gradient = SubResource("Gradient_j2d6l")
@@ -49,6 +49,7 @@ scale_max = 5.0
 color_ramp = SubResource("GradientTexture1D_ye8bo")
 
 [node name="laser" type="Area2D" groups=["death"]]
+z_index = -1
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="." groups=["death"]]
 scale = Vector2(3, 3)

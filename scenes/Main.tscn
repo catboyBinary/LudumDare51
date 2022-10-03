@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6flcmsleqejd"]
+[gd_scene load_steps=7 format=3 uid="uid://b6flcmsleqejd"]
 
 [ext_resource type="Script" path="res://scenes/GameSwitcher.gd" id="1_mjxak"]
 [ext_resource type="PackedScene" uid="uid://ddnk115yeap5d" path="res://scenes/director.tscn" id="1_s7l41"]
 [ext_resource type="PackedScene" uid="uid://cbkt01dckr06x" path="res://scenes/games/fps/fps_game.tscn" id="2_hlww5"]
 [ext_resource type="PackedScene" uid="uid://c64rfvnq3nwdh" path="res://scenes/games/mouse_labyrinth/mouse_game.tscn" id="3_56twc"]
 [ext_resource type="PackedScene" uid="uid://upvci7ujpuxi" path="res://scenes/games/platformer2d/Platformer2D.tscn" id="4_gp84m"]
+[ext_resource type="AudioStream" uid="uid://8jd3psd57mmv" path="res://music/music.ogg" id="6_t423j"]
 
 [node name="main" type="Node"]
 
@@ -43,3 +44,8 @@ follow_viewport_enabled = true
 
 [node name="Director" parent="GameOverlay" node_paths=PackedStringArray("game_switcher") instance=ExtResource("1_s7l41")]
 game_switcher = NodePath("../../SubViewportContainer/SubViewport/Games")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_t423j")
+autoplay = true
+bus = &"Music"

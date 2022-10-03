@@ -1,8 +1,11 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bm2ckreqp1ciw"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bm2ckreqp1ciw"]
 
 [ext_resource type="FontFile" uid="uid://bvwsoxdy5wqgj" path="res://fonts/CraftyGirls.ttf" id="1_acoti"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71dh8"]
+
 [resource]
 default_font = ExtResource("1_acoti")
-default_font_size = 16
+default_font_size = 24
+Button/styles/normal = SubResource("StyleBoxFlat_71dh8")
 Label/font_sizes/font_size = 72
