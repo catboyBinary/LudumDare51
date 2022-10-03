@@ -2,6 +2,7 @@ class_name GameSwitcher
 extends Node
 
 var loops = 0
+var completed = 0
 var children: Array[Node]
 var count: int
 var current: int = 0
@@ -19,6 +20,7 @@ func _ready() -> void:
 	children[current].show()
 
 func next_game() -> void:
+	if count == 0: get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 	children[current].process_mode = Node.PROCESS_MODE_DISABLED
 	children[current].hide()
 	if children[current].name == "Platformer2D": 

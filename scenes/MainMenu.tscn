@@ -25,7 +25,6 @@ theme = ExtResource("1_6fi4d")
 script = ExtResource("1_tck17")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,7 +40,6 @@ text = "Genre Hopper"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -57,7 +55,6 @@ theme_override_font_sizes/font_size = 40
 text = "Programmers"
 
 [node name="Label3" type="Label" parent="Label2"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -74,7 +71,6 @@ text = "b1n4ry
 belowdecent"
 
 [node name="Label6" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -90,7 +86,6 @@ theme_override_font_sizes/font_size = 40
 text = "Volume"
 
 [node name="HSlider" type="HSlider" parent="Label6"]
-layout_mode = 0
 offset_left = 143.0
 offset_top = 56.0
 offset_right = 407.0
@@ -98,7 +93,6 @@ offset_bottom = 72.0
 value = 50.0
 
 [node name="HSlider2" type="HSlider" parent="Label6"]
-layout_mode = 1
 offset_left = 143.0
 offset_top = 88.0
 offset_right = 407.0
@@ -106,7 +100,6 @@ offset_bottom = 104.0
 value = 50.0
 
 [node name="Label3" type="Label" parent="Label6"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -123,7 +116,6 @@ text = "Music
 "
 
 [node name="Label4" type="Label" parent="Label6"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -139,7 +131,6 @@ theme_override_font_sizes/font_size = 28
 text = "Sound"
 
 [node name="Label4" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -155,7 +146,6 @@ theme_override_font_sizes/font_size = 40
 text = "2D Art"
 
 [node name="Label3" type="Label" parent="Label4"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -173,7 +163,6 @@ pwoba
 Archy"
 
 [node name="Label3" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -190,7 +179,6 @@ text = "Musicians"
 horizontal_alignment = 2
 
 [node name="Label3" type="Label" parent="Label3"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -208,7 +196,6 @@ belowdecent"
 horizontal_alignment = 2
 
 [node name="Label5" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -226,7 +213,6 @@ in 72 hours for Ludum Dare 51 GameJam"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -262,7 +248,6 @@ wait_time = 10.0
 autostart = true
 
 [node name="Play" type="Button" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -278,7 +263,6 @@ focus_mode = 0
 text = "Play"
 
 [node name="Exit" type="Button" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -294,7 +278,6 @@ focus_mode = 0
 text = "Exit"
 
 [node name="Credits" type="Button" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -311,7 +294,6 @@ text = "Credits
 "
 
 [node name="Options" type="Button" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -328,7 +310,6 @@ text = "Options
 "
 
 [node name="Options2" type="Button" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -345,7 +326,6 @@ text = "Return
 "
 
 [node name="Credits2" type="Button" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
