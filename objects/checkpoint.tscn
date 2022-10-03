@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://t5cahilirw5c"]
+
+[ext_resource type="Texture2D" uid="uid://d28tkq2r8jdng" path="res://sprites/tilemap.png" id="1_w5fdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tv2k"]
+size = Vector2(42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvsjq"]
+atlas = ExtResource("1_w5fdg")
+region = Rect2(64, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s88ft"]
+atlas = ExtResource("1_w5fdg")
+region = Rect2(80, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6o56"]
+atlas = ExtResource("1_w5fdg")
+region = Rect2(96, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6hwl"]
+atlas = ExtResource("1_w5fdg")
+region = Rect2(112, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6vqop"]
+animations = [{
+"frames": [SubResource("AtlasTexture_mvsjq"), SubResource("AtlasTexture_s88ft"), SubResource("AtlasTexture_n6o56"), SubResource("AtlasTexture_r6hwl")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_jfc0q"]
+offsets = PackedFloat32Array(0, 0.54, 1)
+colors = PackedColorArray(0.329412, 0.882353, 0.458824, 1, 0.2, 0.780392, 0.690196, 1, 0.180392, 0.580392, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bgjsa"]
+gradient = SubResource("Gradient_jfc0q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g1uub"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 16.0
+emission_ring_inner_radius = 16.0
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+angular_velocity_max = 175.61
+orbit_velocity_min = 0.5
+orbit_velocity_max = 1.0
+scale_min = 3.0
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_bgjsa")
+
+[node name="checkpoint" type="Area2D" groups=["checkpoint"]]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_2tv2k")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+z_index = 1
+frames = SubResource("SpriteFrames_6vqop")
+playing = true
+
+[node name="GpuParticles2d" type="GPUParticles2D" parent="."]
+amount = 16
+fixed_fps = 60
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_g1uub")

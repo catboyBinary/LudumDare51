@@ -84,6 +84,7 @@ offset = Vector2(0, -32)
 process_callback = 0
 limit_left = -25
 limit_bottom = 700
+limit_smoothed = true
 smoothing_enabled = true
 smoothing_speed = 8.0
 drag_vertical_enabled = true

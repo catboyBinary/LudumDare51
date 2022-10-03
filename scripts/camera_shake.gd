@@ -1,6 +1,6 @@
 extends Node
 
-const TRANS = Tween.TRANS_SINE
+const TRANS = Tween.TRANS_LINEAR
 const EASE = Tween.EASE_IN_OUT
 
 var amplitude = 0

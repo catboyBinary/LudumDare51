@@ -14,6 +14,11 @@ func _ready() -> void:
 func next_game() -> void:
 	children[current].process_mode = Node.PROCESS_MODE_DISABLED
 	children[current].hide()
+	if children[(current + 1) % count].is_in_group("completed"): 
+		children.erase(children[(current + 1) % count])
+		count -= 1
+		next_game()
+		return
 	current = (current + 1) % count
 	children[current].process_mode = Node.PROCESS_MODE_INHERIT
 	children[current].show()

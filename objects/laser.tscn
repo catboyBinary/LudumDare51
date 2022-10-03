@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4wn1hxlj82lo"]
+
+[ext_resource type="Texture2D" uid="uid://d28tkq2r8jdng" path="res://sprites/tilemap.png" id="1_gp0m2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ntqp"]
+atlas = ExtResource("1_gp0m2")
+region = Rect2(64, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x41kx"]
+atlas = ExtResource("1_gp0m2")
+region = Rect2(80, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrw85"]
+atlas = ExtResource("1_gp0m2")
+region = Rect2(96, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mttt4"]
+animations = [{
+"frames": [SubResource("AtlasTexture_8ntqp"), SubResource("AtlasTexture_x41kx"), SubResource("AtlasTexture_hrw85")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bv1wn"]
+size = Vector2(48, 27)
+
+[sub_resource type="Gradient" id="Gradient_j2d6l"]
+colors = PackedColorArray(0.877695, 0.378366, 0.189849, 1, 1, 0.501961, 0.0117647, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ye8bo"]
+gradient = SubResource("Gradient_j2d6l")
+width = 10
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h706x"]
+emission_shape = 3
+emission_box_extents = Vector3(24, 12, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 11.42
+gravity = Vector3(0, 98, 0)
+initial_velocity_max = 96.91
+angular_velocity_min = 105.36
+angular_velocity_max = 117.07
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 5.0
+color_ramp = SubResource("GradientTexture1D_ye8bo")
+
+[node name="laser" type="Area2D" groups=["death"]]
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="." groups=["death"]]
+scale = Vector2(3, 3)
+frames = SubResource("SpriteFrames_mttt4")
+playing = true
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="." groups=["death"]]
+visible = false
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_bv1wn")
+
+[node name="GpuParticles2d" type="GPUParticles2D" parent="." groups=["death"]]
+amount = 12
+lifetime = 1.5
+preprocess = 1.0
+explosiveness = 0.45
+randomness = 0.13
+fixed_fps = 60
+trail_length_secs = 1.05
+trail_sections = 2
+trail_section_subdivisions = 1
+process_material = SubResource("ParticleProcessMaterial_h706x")

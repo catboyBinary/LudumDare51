@@ -27,11 +27,9 @@ orbit_velocity_max = 0.0
 scale_max = 3.0
 color_ramp = SubResource("GradientTexture1D_a6sev")
 
-[node name="jump_pad" type="StaticBody2D" groups=["jump_pad"]]
+[node name="jump_pad" type="Area2D" groups=["jump_pad"]]
 
-[node name="Area2d" type="Area2D" parent="." groups=["jump_pad"]]
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d" groups=["jump_pad"]]
+[node name="CollisionShape2d" type="CollisionShape2D" parent="." groups=["jump_pad"]]
 shape = SubResource("RectangleShape2D_cvv34")
 
 [node name="Sprite2d" type="Sprite2D" parent="." groups=["jump_pad"]]
