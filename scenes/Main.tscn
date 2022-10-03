@@ -30,11 +30,11 @@ script = ExtResource("1_mjxak")
 process_mode = 4
 visible = false
 
-[node name="MouseGame" parent="SubViewportContainer/SubViewport/Games" groups=["completed"] instance=ExtResource("3_56twc")]
+[node name="MouseGame" parent="SubViewportContainer/SubViewport/Games" instance=ExtResource("3_56twc")]
 process_mode = 4
 visible = false
 
-[node name="Platformer2D" parent="SubViewportContainer/SubViewport/Games" groups=["completed"] instance=ExtResource("4_gp84m")]
+[node name="Platformer2D" parent="SubViewportContainer/SubViewport/Games" instance=ExtResource("4_gp84m")]
 process_mode = 4
 visible = false
 

@@ -1,17 +1,20 @@
 extends Area2D
 
 @export var default_pos: Vector2
+@onready var sprite: Node2D = $Axe
 
 func _ready() -> void:
 	set_physics_process(false)
 	position = default_pos
 	
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	position = get_viewport().get_mouse_position()
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_pressed("click"):
 		monitoring = true
+		rotate(delta * 30)
 	else:
 		call_deferred("disable_axe")
+		rotation = lerp_angle(rotation, 0, 0.1)
 		
 func disable_axe():
 	monitoring = false
