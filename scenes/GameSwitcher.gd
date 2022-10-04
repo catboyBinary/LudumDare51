@@ -20,7 +20,11 @@ func _ready() -> void:
 	children[current].show()
 
 func next_game() -> void:
-	if count == 0: get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+	if count <= 0: 
+		get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		return
+	if current+1 > count: current = 0
 	children[current].process_mode = Node.PROCESS_MODE_DISABLED
 	children[current].hide()
 	if children[current].name == "Platformer2D": 
@@ -33,6 +37,7 @@ func next_game() -> void:
 		next_game()
 		return
 	current = (current + 1) % count
+	if current+1 > count: current = 0
 	children[current].process_mode = Node.PROCESS_MODE_INHERIT
 	
 	if children[current].name == "Platformer2D": 

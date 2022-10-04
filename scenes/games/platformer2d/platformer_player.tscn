@@ -114,9 +114,11 @@ bus = &"SFX"
 
 [node name="DeathSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_xrffe")
+bus = &"SFX"
 
 [node name="PadSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7msim")
+bus = &"SFX"
 
 [node name="WinLabel" type="Label" parent="."]
 visible = false
